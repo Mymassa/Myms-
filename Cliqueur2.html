@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mini Jeu Simple</title>
+    <style>
+      body {
+        background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      h1, p, button {
+        text-align: center;
+      }
+      h1 {
+        font-size: 48px;
+      }
+      button {
+        background-color: black;
+        color: red;
+        font-size: 24px;
+        padding: 12px;
+        border-radius: 8px;
+        transition: all 0.2s;
+        position: relative;
+        overflow: hidden;
+      }
+      button:hover {
+        background-color: red;
+        color: black;
+        cursor: pointer;
+      }
+      .cotillons {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Confetti.png/240px-Confetti.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        animation: cotillon 1s linear;
+      }
+      @keyframes cotillon {
+        0% {
+          transform: translateY(-100%);
+        }
+        100% {
+          transform: translateY(100%);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Clique pour voir !</h1>
+    <p id="instruction">Clique sur le bouton ci-dessous pour voir ce qui t'attend :</p>
+    <button onclick="gagner()">ici<div class="cotillons"></div></button>
+    <img id="gif" src="" style="display: none;">
+    <script>
+      function gagner() {
+        document.querySelector("button").innerHTML = "sbim";
+        document.querySelector("h1").innerHTML = "Bravo, tu sais cliquer !";
+        document.querySelector("#instruction").innerHTML = "Tu vas prendre cher !";
+        document.querySelector("#gif").src = "https://www.gif-maniac.com/gifs/38/38242.gif";
+        document.querySelector("#gif").style.display = "block";
+      }
+    </script>
+  </body>
+</html>
